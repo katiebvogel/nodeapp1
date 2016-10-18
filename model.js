@@ -1,51 +1,64 @@
-//
-// create or replace function data.load_csv_file
-// (
-//     target_table text,
-//     csv_path text,
-//     col_count integer
-// )
-//
-// returns void as $$
-//
-// declare
-//
-// iter integer; -- dummy integer to iterate columns with
-// col text; -- variable to keep the column name at each iteration
-// col_first text; -- first column name, e.g., top left corner on a csv file or spreadsheet
-//
-// begin
-//     set schema 'data';
-//
-//     create table temp_table ();
-//
-//     -- add just enough number of columns
-//     for iter in 1..col_count
-//     loop
-//         execute format('alter table temp_table add column col_%s text;', iter);
-//     end loop;
-//
-//     -- copy the data from csv file
-//     execute format('copy temp_table from %L with delimiter '','' quote ''"'' csv ', csv_path);
-//
-//     iter := 1;
-//     col_first := (select col_1 from temp_table limit 1);
-//
-//     -- update the column names based on the first row which has the column names
-//     for col in execute format('select unnest(string_to_array(trim(temp_table::text, ''()''), '','')) from temp_table where col_1 = %L', col_first)
-//     loop
-//         execute format('alter table temp_table rename column col_%s to %s', iter, col);
-//         iter := iter + 1;
-//     end loop;
-//
-//     -- delete the columns row
-//     execute format('delete from temp_table where %s = %L', col_first, col_first);
-//
-//     -- change the temp table name to the name given as parameter, if not blank
-//     if length(target_table) > 0 then
-//         execute format('alter table temp_table rename to %I', target_table);
-//     end if;
-//
-// end;
+var fs = require('fs');
+var csvjson = require('csvjson');
+// var tops = fs.readFileSync('/Users/meganmartinson/Desktop/top_thou_tops.csv').toString();
+var tops = fs.readFileSync('/Users/katherinevogel/Desktop/tops.csv').toString();
+var tags = fs.readFileSync('/Users/katherinevogel/Desktop/taxons.csv').toString();
+var options = {
+ delimiter: ','
+};
+var options2 = {
+ delimiter: '|'
+};
+var tagsj = csvjson.toObject(tags, options);
+var topsj = csvjson.toObject(tops, options2);
+// var tops = JSON.parse(fs.readFileSync('/Users/meganmartinson/Downloads/tops_no_hex.json').toString());
+// var tags = JSON.parse(fs.readFileSync('**insertjsonhere**').toString());
 
-// id,attri1id,brand,of8,dept,depttree,inventorytype,largepicture,listprice,name,overallqoh,pictureID,pricerange,prodreviewsaverage,sale,salepricerangebottom,sizelist,smallpicture,style,url,googleproducttaxonomy,shippingsurcharge,topseller,hexlist,tinypicture,justin,meganpick,finds,shoecharge,exclusive
+topsj.forEach(function (file) {
+       file.title = file.name;
+       delete file.name;
+
+       file.price = file.listprice;
+       delete file.listprice;
+
+       file.requiresShipping = true;
+       // FOR ALL METAFIELD DATA
+       file.metafields = {};
+
+       file.metafields.style = file.style;
+       delete file.style;
+
+       // FOR ALL HASHTAG DATA
+       file.hashtags = {}
+       if (file.meganpick == 'Y') {
+         file.hashtags.push('**INSERT ID HERE**')
+       };
+       if (file.exclusive == 'Y') {
+         file.hashtags.push('**INSERT ID HERE**');
+       };
+       if (file.finds == 'Y') {
+         file.hashtags.push('**INSERT ID HERE**');
+       };
+       if (file.justin == 'Y') {
+         file.hashtags.push('**INSERT ID HERE**');
+       };
+       if (file.topseller == 'Y') {
+         file.hashtags.push('**INSERT ID HERE**');
+       };
+       file.vendor = file.brand;
+       file.hashtags.push(file.vendor);
+       delete file.brand;
+       file.isVisible = true;
+       file.hashtags.push(file.dept);
+       file.hashtags.push(file.inventorytype);
+   };
+
+
+   /// UPDATING OUR TAXO STRUCTURE TO TAG structure
+
+   tagsj.forEach(tag) {
+     tags.slug = (tag.name.split(' ').concat('-'));
+     delete tag.id, tag.parentId, tag.permalink, tag.taxonomy_id, tag.lft, tag.rgt, tag.icon_file_name, tag.icon_content_type,
+       tag.icon_file_size, tag.icon_updated_at, tag.description, tag.meta_title, tag.meta_description, tag.meta_keyworkds,
+       tag.depth;
+   };
