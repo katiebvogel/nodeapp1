@@ -12,16 +12,44 @@ var object = require('lodash/fp/object');
 // Cherry-pick methods for smaller browserify/rollup/webpack bundles.
 var at = require('lodash/at');
 var curryN = require('lodash/fp/curryN');
+var zip = require('lodash/fp/zip');
+var zipWith = require('lodash/zipWith');
 
 //~~~~~~~~~~~~~~~~~~~   *************      ~~~~~~~~~~~~~~~~~~~~~~~
 
 //Below are example array methods included in the lodash library
+//
+// var array = [1];
+// var other = _.concat(array, 2, [3], [[4]]);
+//
+// console.log(other);
+// // => [1, 2, 3, [4]]
+//
+// console.log(array);
+// // => [1]
 
-var array = [1];
-var other = _.concat(array, 2, [3], [[4]]);
+var array = [
+    {_id: String,
+  title: String,
+  ancestors: String,
+  shopId: String
+}
+];
+var values = [5,"Shirt", null, null];
 
-console.log(other);
-// => [1, 2, 3, [4]]
 
-console.log(array);
-// => [1]
+var goal = zipWith(array, values, function(item, value){
+  return _.defaults({ v: value}, item);
+});
+// var goal = _.map(_.zip(_, arrays), function(parts) {
+//   return _.reduce(parts, function(m, p) {return {m: p};}, 0);
+// });
+
+console.log("goal", goal);
+
+// var goal = schemaArray.map(function (item, index){
+//   item.v = topsArray[index];
+//   console.log("item", item);
+//   return item;
+// });
+// console.log("goal", goal);
