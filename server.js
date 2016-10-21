@@ -4,6 +4,9 @@ var mongoose = require('mongoose');
 var MongoClient = require('mongodb').MongoClient;
 var bodyParser= require('body-parser');
 var index = require('./routes/index');
+var lodash = require('./routes/lodash');
+
+
 
 
 //below code for connecting to postgresql DB
