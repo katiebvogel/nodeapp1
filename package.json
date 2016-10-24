@@ -10,11 +10,13 @@
   "author": "Katie",
   "license": "ISC",
   "dependencies": {
+    "JSONPath": "^0.11.2",
     "body-parser": "^1.15.2",
     "csvjson": "^2.2.0",
     "csvtojson": "^1.0.3",
     "express": "^4.14.0",
     "file-system": "^2.2.1",
+    "jsonpath-object-transform": "^1.0.4",
     "lodash": "^4.16.4",
     "mongodb": "^2.2.10",
     "mongoose": "^4.6.4",

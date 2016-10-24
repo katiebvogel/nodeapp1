@@ -53,3 +53,13 @@ console.log("goal", goal);
 //   return item;
 // });
 // console.log("goal", goal);
+
+
+// var new_array = arr.map(callback[, thisArg])
+
+var kvArray = [{key:1, value:10}, {key:2, value:20}, {key:3, value: 30}];
+var reformattedArray = kvArray.map(function(obj){
+   var rObj = {};
+   rObj[obj.key] = obj.value;
+   console.log("rObj:",  rObj);
+});
