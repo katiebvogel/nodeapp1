@@ -20,7 +20,7 @@ var curryN = require('lodash/fp/curryN');
 
 var zip = require('lodash/fp/zip');
 var zipObject = require('lodash/fp/zipObject');
-mongoose.connect('mongodb://localhost/testing');
+var db = mongoose.connect('mongodb://localhost/testing');
 
 router.get('/', function(req, res) {
   console.log('Here is a console log'); res.send('What up!');
@@ -195,27 +195,27 @@ var Top = mongoose.model(
     type: String,
     optional: true
   },
-  // handle: {
-  //   type: String,
-  //   optional: true,
-  //   index: 1,
-  //   autoValue: function () {
-  //     let slug = getSlug(this.value);
-  //
-  //     if (!slug && this.siblingField("title").value) {
-  //       slug = getSlug(this.siblingField("title").value);
-  //     } else if (!slug) {
-  //       slug = this.siblingField("_id").value || Random.id();
-  //     }
-  //     if (this.isInsert) {
-  //       return slug;
-  //     } else if (this.isUpsert) {
-  //       return {
-  //         $setOnInsert: slug
-  //       };
-  //     }
-  //   }
-  // },
+  handle: {
+    type: String,
+    optional: true,
+    index: 1,
+    autoValue: function () {
+      let slug = getSlug(this.value);
+
+      if (!slug && this.siblingField("title").value) {
+        slug = getSlug(this.siblingField("title").value);
+      } else if (!slug) {
+        slug = this.siblingField("_id").value || Random.id();
+      }
+      if (this.isInsert) {
+        return slug;
+      } else if (this.isUpsert) {
+        return {
+          $setOnInsert: slug
+        };
+      }
+    }
+  },
   isDeleted: {
     type: Boolean,
     index: 1,
@@ -231,16 +231,16 @@ var Top = mongoose.model(
     optional: true
   },
   createdAt: {
-    type: Date,
-    autoValue: function () {
-      if (this.isInsert) {
-        return new Date;
-      } else if (this.isUpsert) {
-        return {
-          $setOnInsert: new Date
-        };
-      }
-    }
+    type: Date
+    // autoValue: function () {
+    //   if (this.isInsert) {
+    //     return new Date;
+    //   } else if (this.isUpsert) {
+    //     return {
+    //       $setOnInsert: new Date
+    //     };
+    //   }
+    // }
   },
   updatedAt: {
     type: Date,
@@ -265,34 +265,22 @@ var Top = mongoose.model(
 
 
 
+//
+//
+// keys = ['foo', 'bar', 'qux']
+// values = ['1', '2', '3']
+//
+// function Arr2object(keys, vals) {
+//   return keys.reduce(
+//     function(prev, val, i) {
+//       prev[val] = vals[i];
+//       return prev;
+//     }, {}
+//   );
+// }
+//
+// console.log(Arr2object(keys, values));
 
 
-keys = ['foo', 'bar', 'qux']
-values = ['1', '2', '3']
 
-function Arr2object(keys, vals) {
-  return keys.reduce(
-    function(prev, val, i) {
-      prev[val] = vals[i];
-      return prev;
-    }, {}
-  );
-}
-
-console.log(Arr2object(keys, values));
-
-// var mapped = zipObject(keys, _.map(keys, function() { }));;
-// console.log("mapped:", mapped);
-
-// console.log("new Top as Array:", newTop);
-
-// top1.save(function (err, topObject) {
-//   if (err){
-//     console.log(err, 'you have an error saving');
-//   } else {
-//     console.log( topObject, 'you have saved it!');
-//   }
-// });
-
-
-module.exports = router;
+module.exports = Top;
