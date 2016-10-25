@@ -20,7 +20,7 @@ var curryN = require('lodash/fp/curryN');
 
 var zip = require('lodash/fp/zip');
 var zipObject = require('lodash/fp/zipObject');
-var db = mongoose.connect('mongodb://localhost/testing');
+var db = mongoose.connect('mongodb://localhost/meteor');
 
 router.get('/', function(req, res) {
   console.log('Here is a console log'); res.send('What up!');
