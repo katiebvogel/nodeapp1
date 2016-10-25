@@ -6,111 +6,123 @@ var transform = require('jsonpath-object-transform');
 var fs = require('file-system');
 var csvtojson = require('csvtojson');
 var Top = require('./index.js');
-
+// var async = require('async');
 //Converter Class
 var Converter = require('csvtojson').Converter;
 var converter = new Converter({});
 require("fs").createReadStream("testTops.csv").pipe(converter);
 var data;
 
-//end_parsed will be emitted once parsing finished
-converter.on("end_parsed", function(tops) {
 
-    var testHash = [];
-    var testMetafield = [];
 
-    var testGrab = function() {
+
+
+
+    //end_parsed will be emitted once parsing finished
+    converter.on("end_parsed", function(tops) {
+
+        var testHash = [];
+        var testMetafield = [];
+
+        var testGrab = function() {
+
+
+            for (var i = 0; i < tops.length; i++) {
+
+                var tempTop = tops[i];
+                tempTop.hashtags = [];
+                tempTop.metafields = [];
+                if (typeof tempTop.brand === 'undefined') {
+                    tempTop.brand === null
+                };
+                if (typeof tempTop.dept === 'undefined') {
+                    tempTop.dept === null
+                };
+                if (typeof tempTop.inventorytype === 'undefined') {
+                    tempTop.inventorytype === null
+                };
+                if (typeof tempTop.sale === 'undefined' || tempTop.sale === 'N') {
+                    tempTop.sale = null
+                } else {
+                    tempTop.sale == 'sale'
+                };
+                if (typeof tempTop.topseller === 'undefined' || tempTop.topseller === 'N') {
+                    tempTop.topseller = null
+                } else {
+                    tempTop.topseller = 'topseller'
+                };
+                if (typeof tempTop.justin === 'undefined' || tempTop.justin === 'N') {
+                    tempTop.justin = null
+                } else {
+                    tempTop.justin = 'justin'
+                };
+                if (typeof tempTop.meganpick === 'undefined' || tempTop.meganpick === 'N') {
+                    tempTop.meganpick = null
+                } else {
+                    tempTop.meganpick = 'meganpick'
+                };
+                if (typeof tempTop.finds === 'undefined' || tempTop.finds === 'N') {
+                    tempTop.finds = null
+                } else {
+                    tempTop.finds = 'finds'
+                };
+                if (typeof tempTop.exclusive === 'undefined') {
+                    tempTop.exclusive = {}
+                } else if (tempTop.exclusive === 'N') {
+                    tempTop.exclusive = null
+                } else {
+                    tempTop.exclusive = 'exclusive'
+                };
+                testHash = tempTop.hashtags;
+                testHash.push(
+                    tempTop.brand,
+                    tempTop.dept,
+                    tempTop.inventorytype,
+                    tempTop.sale,
+                    tempTop.topseller,
+                    tempTop.justin,
+                    tempTop.meganpick,
+                    tempTop.exclusive,
+                    tempTop.finds);
+                console.log('here is a testHash that has finds', testHash);
+
+                testMetafield = tempTop.metafields
+                testMetafield.push(tempTop.hexlist, tempTop.sizelist);
+
+
+                // testHashArray = testHashArray.push(testHash);
+            }
+            return testHash;
+        };
+        testGrab();
+
+
+        // });
+
+        console.log('myjsonArraywith hashTest/data:', tops); //here is your result jsonarray
+        //below we loop through each document/product and transform it individually.  result is just ONE product transformed.
         for (var i = 0; i < tops.length; i++) {
 
-            var tempTop = tops[i];
-            if (typeof tempTop.brand === 'undefined') {
-                tempTop.brand === null
-            };
-            if (typeof tempTop.dept === 'undefined') {
-                tempTop.dept === null
-            };
-            if (typeof tempTop.inventorytype === 'undefined') {
-                tempTop.inventorytype === null
-            };
-            if (typeof tempTop.sale === 'undefined' || tempTop.sale === 'N') {
-                tempTop.sale = null
-            } else {
-              tempTop.sale == 'sale'
-            };
-            if (typeof tempTop.topseller === 'undefined' || tempTop.topseller === 'N') {
-                tempTop.topseller = null
-            } else {
-              tempTop.topseller = 'topseller'
-            };
-            if (typeof tempTop.justin === 'undefined' || tempTop.justin === 'N') {
-                tempTop.justin = null
-            } else {
-              tempTop.justin = 'justin'
-            };
-            if (typeof tempTop.meganpick === 'undefined' || tempTop.meganpick === 'N') {
-                tempTop.meganpick = null
-            } else {
-              tempTop.meganpick = 'meganpick'
-            };
-            if (typeof tempTop.finds === 'undefined' || tempTop.finds === 'N') {
-                tempTop.finds = null
-            } else {
-              tempTop.finds = 'finds'
-            };
-            if (typeof tempTop.exclusive === 'undefined'){
-                tempTop.exclusive = {}
-            } else if (tempTop.exclusive === 'N') {
-              tempTop.exclusive = null
-            } else {
-              tempTop.exclusive = 'exclusive'
-            };
-            testHash = tempTop.hashtags;
-            testHash.push(
-                tempTop.brand,
-                tempTop.dept,
-                tempTop.inventorytype,
-                tempTop.sale,
-                tempTop.topseller,
-                tempTop.justin,
-                tempTop.meganpick,
-                tempTop.exclusive,
-                tempTop.finds);
-            console.log('here is a testHash that has finds', testHash);
+            var data = tops[i];
+            var result = transform(data, template);
+            console.log("mapping data from example to template:", result);
 
-            testMetafield = tempTop.metafields
-            testMetafield.push(tempTop.hexlist, tempTop.sizelist);
+            var top1 = new Top(result);
 
 
-            // testHashArray = testHashArray.push(testHash);
+            top1.save(function(err, topObject) {
+                if (err) {
+                    console.log(err, 'you have an error saving');
+                } else {
+                    console.log(topObject, 'you have saved it!');
+                }
+            });
         }
-        return testHash;
-    };
-    testGrab();
+        return result;
 
 
-    console.log('myjsonArraywith hashTest/data:', tops); //here is your result jsonarray
-    //below we loop through each document/product and transform it individually.  result is just ONE product transformed.
-    for (var i = 0; i < tops.length; i++) {
+    });
 
-        var data = tops[i];
-        var result = transform(data, template);
-        console.log("mapping data from example to template:", result);
-
-        var top1 = new Top(result);
-
-
-        top1.save(function(err, topObject) {
-            if (err) {
-                console.log(err, 'you have an error saving');
-            } else {
-                console.log(topObject, 'you have saved it!');
-            }
-        });
-    }
-    return result;
-
-
-});
 
 
 var template = {
