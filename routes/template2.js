@@ -17,53 +17,54 @@ var data;
 converter.on("end_parsed", function(tops) {
 
     var testHash = [];
+    var testMetafield = [];
 
     var testGrab = function() {
         for (var i = 0; i < tops.length; i++) {
 
             var tempTop = tops[i];
             if (typeof tempTop.brand === 'undefined') {
-                tempTop.brand === {}
+                tempTop.brand === null
             };
             if (typeof tempTop.dept === 'undefined') {
-                tempTop.dept === {}
+                tempTop.dept === null
             };
             if (typeof tempTop.inventorytype === 'undefined') {
-                tempTop.inventorytype === {}
+                tempTop.inventorytype === null
             };
             if (typeof tempTop.sale === 'undefined' || tempTop.sale === 'N') {
-                tempTop.sale === {}
+                tempTop.sale = null
             } else {
-              tempTop.sale === true
+              tempTop.sale == 'sale'
             };
             if (typeof tempTop.topseller === 'undefined' || tempTop.topseller === 'N') {
-                tempTop.topseller === {}
+                tempTop.topseller = null
             } else {
-              tempTop.topseller === true
+              tempTop.topseller = 'topseller'
             };
             if (typeof tempTop.justin === 'undefined' || tempTop.justin === 'N') {
-                tempTop.justin === {}
+                tempTop.justin = null
             } else {
-              tempTop.justin === 'justin'
+              tempTop.justin = 'justin'
             };
             if (typeof tempTop.meganpick === 'undefined' || tempTop.meganpick === 'N') {
-                tempTop.meganpick === {}
+                tempTop.meganpick = null
             } else {
-              tempTop.meganpick === 'meganpick'
+              tempTop.meganpick = 'meganpick'
             };
             if (typeof tempTop.finds === 'undefined' || tempTop.finds === 'N') {
-                tempTop.finds === {}
+                tempTop.finds = null
             } else {
-              tempTop.finds === 'finds'
+              tempTop.finds = 'finds'
             };
             if (typeof tempTop.exclusive === 'undefined'){
-                tempTop.exclusive === {}
+                tempTop.exclusive = {}
             } else if (tempTop.exclusive === 'N') {
-              tempTop.exclusive === {}
+              tempTop.exclusive = null
             } else {
-              tempTop.exclusive === 'exclusive'
+              tempTop.exclusive = 'exclusive'
             };
-            var testHash = tempTop.hashtags;
+            testHash = tempTop.hashtags;
             testHash.push(
                 tempTop.brand,
                 tempTop.dept,
@@ -75,6 +76,11 @@ converter.on("end_parsed", function(tops) {
                 tempTop.exclusive,
                 tempTop.finds);
             console.log('here is a testHash that has finds', testHash);
+
+            testMetafield = tempTop.metafields
+            testMetafield.push(tempTop.hexlist, tempTop.sizelist);
+
+
             // testHashArray = testHashArray.push(testHash);
         }
         return testHash;
@@ -116,7 +122,7 @@ var template = {
     description: "",
     type: "",
     vendor: '$..brand',
-    metafields: '$..hexlist',
+    metafields: ['$..metafields'],
     positions: "",
     price: '$..listprice',
     isLowQuantity: false,
