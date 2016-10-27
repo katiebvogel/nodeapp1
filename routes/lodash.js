@@ -55,6 +55,29 @@ console.log("goal", goal);
 // console.log("goal", goal);
 
 
+//~~~~~~~~~~~~~ split a string array
+
+var str = "How,are,you,doing,today?";
+var res = str.split(",");
+console.log('splitting a string:', res);
+
+// var item;
+res.reduce(function(res, item) {
+  res[item] = item;
+  console.log('reducing array:', res);
+return res;
+}, {})
+
+
+//~~~~~~~~~~~
+// ['a','b','c'].reduce(function(result, item) {
+//   result[item] = item; //a, b, c
+//   console.log('reducing your array:', result);
+//   return result;
+// }, {})
+
+
+
 // var new_array = arr.map(callback[, thisArg])
 
 var kvArray = [{key:1, value:10}, {key:2, value:20}, {key:3, value: 30}];

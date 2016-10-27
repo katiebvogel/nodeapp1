@@ -5,3 +5,9 @@ I used JSONpath and jsonpath-object-transform.
 
 There is also another package that works with lodash.  
 node-json-transform.
+
+10/26/16
+mongoimport -h localhost:3001 --db meteor --collection Prod
+ucts --file /Users/katherinevogel/Codespace/reaction/custom/fileProducts.json
+
+^^run from terminal in reaction directory to bypass meteorImport process.

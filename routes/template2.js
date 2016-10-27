@@ -22,15 +22,21 @@ converter.on("end_parsed", function(tops) {
 
     var testHash = [];
     var testMetafield = [];
-
+    var newMetafield = {};
     var testGrab = function() {
 
 
         for (var i = 0; i < tops.length; i++) {
 
             var tempTop = tops[i];
+            tempTop.isVisible = true;
+            tempTop.isSoldOut = false;
+            tempTop.isDeleted = false;
+            tempTop.shopId = 'J8Bhq3uTtdgwZx3rz';
+
             tempTop.hashtags = [];
             tempTop.metafields = [];
+            tempTop.newMetafield = [];
             if (typeof tempTop.brand === 'undefined') {
                 tempTop.brand === null
             };
@@ -87,10 +93,27 @@ converter.on("end_parsed", function(tops) {
 
             testMetafield = tempTop.metafields;
             testMetafield.push(tempTop.hexlist, tempTop.sizelist);
+            console.log('here is the first testMetafield:', testMetafield);
+            //
+            // function toObject(testMetafield) {
+            //   var rv = {};
+            //   for (var i = 0; i < testMetafield.length; ++i)
+            //     rv[i] = testMetafield[i];
+            //     console.log('Metafield array to object', rv);
+            //   return rv;
+            // };
+            //
+            tempTop.newMetafield = testMetafield.reduce(function(testMetafield, item, index) {
+              testMetafield[index] = item;
+              console.log('reducing Metafield array:', testMetafield);
+              return testMetafield;
 
+            }, {});
 
         }
         return testHash;
+        return newMetafield;
+
     };
     testGrab();
 
@@ -116,8 +139,8 @@ converter.on("end_parsed", function(tops) {
             }
         });
     }
+    saveData(result);
     return result;
-
 
 });
 
@@ -126,29 +149,31 @@ converter.on("end_parsed", function(tops) {
 var template = {
     _id: '$..id',
     ancestors: [""],
-    shopId: "",
+    shopId: '$..shopId',
     title: '$..name',
     pageTitle: "",
     description: "",
     type: "",
     vendor: '$..brand',
-    metafields: ['$..metafields'],
+    // metafields: ['$..metafields'],
+    metafields: ['$..newMetafield'],
+    // metafields: '$...item',
     positions: "",
     price: '$..listprice',
     isLowQuantity: false,
-    isSoldOut: false,
+    isSoldOut: '$..isSoldOut',
     isBackorder: true,
     requiresShipping: true,
     parcel: '$..shippingsurcharge',
-    hashtags: ['$..hashtags'],
+    hashtags: [],
     twitterMsg: "",
     facebookMsg: "",
     googleplusMsg: "",
     pinterestMsg: "",
     metaDescription: "",
     handle: 'slug goes here',
-    isDeleted: false,
-    isVisible: true,
+    isDeleted: '$..isDeleted',
+    isVisible: '$..isVisible',
     templateSuffix: "",
     createdAt: Date,
     // updatedAt: ,
@@ -156,6 +181,21 @@ var template = {
     publishedScope: "",
     workflow: ""
 
+};
+
+
+var saveData = function(result) {
+  var arr = [];
+  var JSONResult = JSON.stringify(result);
+   fs.writeFile('/Users/katherinevogel/Codespace/reaction/custom/fileProducts.json', JSONResult, function(err, data){
+    if (err) {
+      console.log('error with your data file export', err);
+    }
+
+    console.log('It has been saved as a file, yo!', JSONResult);
+
+  });
+  return JSONResult;
 };
 
 

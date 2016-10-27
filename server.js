@@ -47,7 +47,7 @@ app.use(express.static('public'));
 
 
 
-const server = app.listen(3000, function(){
+const server = app.listen(3002, function(){
   var port = server.address().port;
   console.log('Listening on port: ', port);
 });
