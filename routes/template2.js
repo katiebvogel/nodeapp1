@@ -11,23 +11,18 @@ var Top = require('./index.js');
 var Converter = require('csvtojson').Converter;
 var converter = new Converter({});
 
+// var JSONResult;
 
 require("fs").createReadStream("testTops.csv").pipe(converter);
 var data;
-
-
-
 //end_parsed will be emitted once parsing finished
 converter.on("end_parsed", function(tops) {
 
     var testHash = [];
     var testMetafield = [];
     var newMetafield = {};
-    var testGrab = function() {
-
-
+    testGrab = function() {
         for (var i = 0; i < tops.length; i++) {
-
             var tempTop = tops[i];
             tempTop.isVisible = true;
             tempTop.isSoldOut = false;
@@ -103,6 +98,10 @@ converter.on("end_parsed", function(tops) {
             //   return rv;
             // };
             //
+            //const matchProducts = Products.find({$in:{hashtags: tag._id}});
+            // Product.update({_id: matchProducts._id}, {$addToSet:{hashtags:newTagId}})
+
+            
             tempTop.newMetafield = testMetafield.reduce(function(testMetafield, item, index) {
               testMetafield[index] = item;
               console.log('reducing Metafield array:', testMetafield);
@@ -115,33 +114,28 @@ converter.on("end_parsed", function(tops) {
         return newMetafield;
 
     };
+
     testGrab();
-
-
-    // });
-
     console.log('myjsonArraywith hashTest/data:', tops); //here is your result jsonarray
     //below we loop through each document/product and transform it individually.  result is just ONE product transformed.
+
     for (var i = 0; i < tops.length; i++) {
-
         var data = tops[i];
-        var result = transform(data, template);
+        var result = transform(data, template );
         console.log("mapping data from example to template:", result);
+        var arrayResult = new Array();
+        arrayResult.push(result);
 
+        var stringData = JSON.stringify(arrayResult);
+        // var parseData = JSON.parse(stringData);
+        saveData(stringData);
 
-        //below is just saving the tops to the Test mongoDB//
-        var top1 = new Top(result);
-        top1.save(function(err, topObject) {
-            if (err) {
-                console.log(err, 'you have an error saving');
-            } else {
-                console.log(topObject, 'you have saved it!');
-            }
-        });
     }
-    saveData(result);
-    return result;
+    console.log('here is arrayResult line 132', stringData);
+    // saveData(arrayResult);
+    // saveData(stringData);
 
+    return arrayResult;
 });
 
 
@@ -184,18 +178,24 @@ var template = {
 };
 
 
-var saveData = function(result) {
-  var arr = [];
-  var JSONResult = JSON.stringify(result);
-   fs.writeFile('/Users/katherinevogel/Codespace/reaction/custom/fileProducts.json', JSONResult, function(err, data){
+var saveData = function(data) {
+
+  // { destination: ['$.path.to.sources', { item: '$.item.path' }] }
+  // var arr = [];
+  // var JSONResult = JSON.stringify(result);
+  // // var JSONParse = JSON.parse(JSONResult);
+  // for (var i = 0; i < JSONResult.length; i++) {
+  //   arr.push(JSONResult[i]);
+  //   console.log('array:  line 210', arr);
+  //   return arr;
+  // }
+   fs.appendFile('/Users/katherinevogel/Codespace/reaction/private/data/Products.json', data, function(err, data){
     if (err) {
       console.log('error with your data file export', err);
     }
-
-    console.log('It has been saved as a file, yo!', JSONResult);
-
+    console.log('It has been saved as a file, yo!', data);
   });
-  return JSONResult;
+  // return JSONResult;
 };
 
 
