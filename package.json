@@ -17,6 +17,7 @@
     "csvtojson": "^1.0.3",
     "express": "^4.14.0",
     "file-system": "^2.2.1",
+    "fs-then": "^0.2.0",
     "jsonpath-object-transform": "^1.0.4",
     "lodash": "^4.16.4",
     "mongodb": "^2.2.10",

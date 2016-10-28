@@ -10,6 +10,8 @@ var async = require('async');
 //Converter Class
 var path = require('path');
 
+fst = require('fs-then');
+
 var Converter = require('csvtojson').Converter;
 var converter = new Converter({});
 
@@ -18,17 +20,19 @@ var converter = new Converter({});
 
 /////////////////////////////////
 //~~~~~~~~~~~~~~~~~~~~~~~BEGIN Block of code for importing Tags and transforming to Reaction Schema    BEGIN   ~~~~~~~~~~~~~~~~~~~~~
-var tags;
+// var tags;
 var tagArray = [];
 var transformedTags;
+var tags;
 
 
-
-fs.readFile('tags.json', 'utf8', function (data){
+fst.readFile('tags.json', 'utf8', function (err, data){
    tags = JSON.parse(data);
    console.log('here is a tag', tags[5]);
    return tags;
-}).then(function convert(tags){
+ }).then(function convert(){
+  console.log('tags?', tag[7]);
+
   for (var i = 0; i < tags.length; i++) {
       var tempTag = tags[i];
       tempTag.slug = "tempTag.name";
@@ -42,7 +46,6 @@ fs.readFile('tags.json', 'utf8', function (data){
   };
   saveTagData(stringTag);
   return tagArray;
-
 });
 
 
