@@ -6,18 +6,87 @@ var transform = require('jsonpath-object-transform');
 var fs = require('file-system');
 var csvtojson = require('csvtojson');
 var Top = require('./index.js');
-// var async = require('async');
+var async = require('async');
 //Converter Class
+var path = require('path');
+
 var Converter = require('csvtojson').Converter;
 var converter = new Converter({});
 
-// var JSONResult;
 
-require("fs").createReadStream("testTops.csv").pipe(converter);
+
+
+/////////////////////////////////
+//~~~~~~~~~~~~~~~~~~~~~~~BEGIN Block of code for importing Tags and transforming to Reaction Schema    BEGIN   ~~~~~~~~~~~~~~~~~~~~~
+var tags;
+var tagArray = [];
+var transformedTags;
+
+
+
+fs.readFile('tags.json', 'utf8', function (data){
+   tags = JSON.parse(data);
+   console.log('here is a tag', tags[5]);
+   return tags;
+}).then(function convert(tags){
+  for (var i = 0; i < tags.length; i++) {
+      var tempTag = tags[i];
+      tempTag.slug = "tempTag.name";
+      tempTag.isTopLevel = true;
+      tempTag.isDeleted = false;
+      tempTag.shopId = 'J8Bhq3uTtdgwZx3rz';
+    tranformedTags = transform(tempTag, tagTemplate);
+    tagArray.push(transformedTags);
+    var stringTag = JSON.stringify(tagArray);
+    console.log('transformed:', transformedTags);
+  };
+  saveTagData(stringTag);
+  return tagArray;
+
+});
+
+
+
+var tagTemplate = {
+    _id: '$..id', //string
+    name: '$..name', //string
+    slug: "", //string
+    position: "", //number
+    relatedTagIds: [], //[string]
+    isDeleted: '$..isDeleted', //boolean default is false
+    isTopLevel: '$..isTopLevel', //boolean
+    shopId: '$..shopId' //string -- hard code for now There is an associated function to autovalue in Reaction
+        // createdAt:  , //date
+        // updatedAt: , //date
+};
+
+saveTagData = function(data) {
+    fs.appendFile('/Users/katherinevogel/Codespace/reaction/private/data/Tags.json', data, function(err, data) {
+        if (err) {
+            console.log('error with your data file export', err);
+        }
+        console.log('It has been saved as a file, yo!', data);
+    });
+};
+
+//~~~~~~~~~~~~~~~~~~~~~~~END Block of code for importing Tags and transforming to Reaction Schema       END    ~~~~~~~~~~~~~~~~~~~~~
+/////////////////////
+
+
+
+
+
+
+
+
+
+/////////////////
+//~~~~~~~~~~~~~~~~~~~~~~~Begin block of code for transforming PRODUCTS for Reaction
+
+fs.createReadStream('testTops.csv').pipe(converter);
 var data;
 //end_parsed will be emitted once parsing finished
 converter.on("end_parsed", function(tops) {
-
     var testHash = [];
     var testMetafield = [];
     var newMetafield = {};
@@ -74,70 +143,30 @@ converter.on("end_parsed", function(tops) {
                 tempTop.exclusive = 'exclusive'
             };
             testHash = tempTop.hashtags;
-            testHash.push(
-                tempTop.brand,
-                tempTop.dept,
-                tempTop.inventorytype,
-                tempTop.sale,
-                tempTop.topseller,
-                tempTop.justin,
-                tempTop.meganpick,
-                tempTop.exclusive,
-                tempTop.finds);
-            console.log('here is a testHash that has finds', testHash);
-
+            testHash.push(tempTop.brand, tempTop.dept, tempTop.inventorytype, tempTop.sale, tempTop.topseller, tempTop.justin, tempTop.meganpick, tempTop.exclusive, tempTop.finds);
             testMetafield = tempTop.metafields;
             testMetafield.push(tempTop.hexlist, tempTop.sizelist);
-            console.log('here is the first testMetafield:', testMetafield);
-            //
-            // function toObject(testMetafield) {
-            //   var rv = {};
-            //   for (var i = 0; i < testMetafield.length; ++i)
-            //     rv[i] = testMetafield[i];
-            //     console.log('Metafield array to object', rv);
-            //   return rv;
-            // };
-            //
-            //const matchProducts = Products.find({$in:{hashtags: tag._id}});
-            // Product.update({_id: matchProducts._id}, {$addToSet:{hashtags:newTagId}})
-
-            
             tempTop.newMetafield = testMetafield.reduce(function(testMetafield, item, index) {
-              testMetafield[index] = item;
-              console.log('reducing Metafield array:', testMetafield);
-              return testMetafield;
-
+                testMetafield[index] = item;
+                return testMetafield;
             }, {});
-
         }
         return testHash;
         return newMetafield;
-
     };
-
     testGrab();
-    console.log('myjsonArraywith hashTest/data:', tops); //here is your result jsonarray
     //below we loop through each document/product and transform it individually.  result is just ONE product transformed.
-
+    var arrayResult = [];
     for (var i = 0; i < tops.length; i++) {
         var data = tops[i];
-        var result = transform(data, template );
-        console.log("mapping data from example to template:", result);
-        var arrayResult = new Array();
+        var result = transform(data, template);
+        // console.log("mapping data from example to template:", result);
         arrayResult.push(result);
-
         var stringData = JSON.stringify(arrayResult);
-        // var parseData = JSON.parse(stringData);
-        saveData(stringData);
-
     }
-    console.log('here is arrayResult line 132', stringData);
-    // saveData(arrayResult);
-    // saveData(stringData);
-
+    saveData(stringData);
     return arrayResult;
-});
-
+}); //end the CONVERTER FUNCTION  //
 
 
 var template = {
@@ -174,29 +203,24 @@ var template = {
     // publishedAt: ,
     publishedScope: "",
     workflow: ""
-
 };
 
 
 var saveData = function(data) {
-
-  // { destination: ['$.path.to.sources', { item: '$.item.path' }] }
-  // var arr = [];
-  // var JSONResult = JSON.stringify(result);
-  // // var JSONParse = JSON.parse(JSONResult);
-  // for (var i = 0; i < JSONResult.length; i++) {
-  //   arr.push(JSONResult[i]);
-  //   console.log('array:  line 210', arr);
-  //   return arr;
-  // }
-   fs.appendFile('/Users/katherinevogel/Codespace/reaction/private/data/Products.json', data, function(err, data){
-    if (err) {
-      console.log('error with your data file export', err);
-    }
-    console.log('It has been saved as a file, yo!', data);
-  });
-  // return JSONResult;
+    fs.appendFile('/Users/katherinevogel/Codespace/reaction/private/data/Products.json', data, function(err, data) {
+        if (err) {
+            console.log('error with your data file export', err);
+        }
+        // console.log('It has been saved as a file, yo!', data);
+    });
 };
+
+/////////////////
+//~~~~~~~~~~~~~~~~~~~~~~~END   block of code for transforming PRODUCTS for Reaction    END PRODUCT TRANSFORM ~~~~~~~~~~~~~~~~~~
+///////////////////////////////////////
+
+
+
 
 
 //Then check for the ID of each of those values by matching to existing tag._id's.

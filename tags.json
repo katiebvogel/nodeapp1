@@ -1,0 +1,518 @@
+[
+ {
+   "id": 1,
+   "name": "Categories"
+ },
+ {
+   "id": 2,
+   "name": "Brand"
+ },
+ {
+   "id": 13,
+   "name": "Accessories"
+ },
+ {
+   "id": 14,
+   "name": "Belts"
+ },
+ {
+   "id": 15,
+   "name": "Jewelry"
+ },
+ {
+   "id": 16,
+   "name": "Necklaces"
+ },
+ {
+   "id": 17,
+   "name": "Bracelets"
+ },
+ {
+   "id": 18,
+   "name": "Rings"
+ },
+ {
+   "id": 19,
+   "name": "Earrings"
+ },
+ {
+   "id": 20,
+   "name": "Headbands"
+ },
+ {
+   "id": 21,
+   "name": "Anklets"
+ },
+ {
+   "id": 22,
+   "name": "Beauty"
+ },
+ {
+   "id": 23,
+   "name": "Gift Cards"
+ },
+ {
+   "id": 24,
+   "name": "Gifts"
+ },
+ {
+   "id": 25,
+   "name": "Hats"
+ },
+ {
+   "id": 26,
+   "name": "Intimates"
+ },
+ {
+   "id": 27,
+   "name": "Slips"
+ },
+ {
+   "id": 28,
+   "name": "Tanks And Camis"
+ },
+ {
+   "id": 29,
+   "name": "Bralettes"
+ },
+ {
+   "id": 30,
+   "name": "Scarves"
+ },
+ {
+   "id": 31,
+   "name": "Sleepwear"
+ },
+ {
+   "id": 32,
+   "name": "Infinity Scarves"
+ },
+ {
+   "id": 33,
+   "name": "Square Scarves"
+ },
+ {
+   "id": 34,
+   "name": "Knit Scarves"
+ },
+ {
+   "id": 35,
+   "name": "Socks"
+ },
+ {
+   "id": 36,
+   "name": "Sunglasses"
+ },
+ {
+   "id": 37,
+   "name": "Tights"
+ },
+ {
+   "id": 38,
+   "name": "Dresses and Skirts"
+ },
+ {
+   "id": 39,
+   "name": "Dresses"
+ },
+ {
+   "id": 40,
+   "name": "Jumpsuits and Rompers"
+ },
+ {
+   "id": 41,
+   "name": "Skirts"
+ },
+ {
+   "id": 42,
+   "name": "Jeans"
+ },
+ {
+   "id": 43,
+   "name": "Boyfriend"
+ },
+ {
+   "id": 44,
+   "name": "Crops and Ankle"
+ },
+ {
+   "id": 45,
+   "name": "Dark Denim"
+ },
+ {
+   "id": 46,
+   "name": "Distressed"
+ },
+ {
+   "id": 47,
+   "name": "Flare"
+ },
+ {
+   "id": 48,
+   "name": "Pants"
+ },
+ {
+   "id": 49,
+   "name": "Grey to Black"
+ },
+ {
+   "id": 50,
+   "name": "Petite"
+ },
+ {
+   "id": 51,
+   "name": "Raw Hem"
+ },
+ {
+   "id": 52,
+   "name": "Shorts"
+ },
+ {
+   "id": 53,
+   "name": "Skinny"
+ },
+ {
+   "id": 54,
+   "name": "Straight Leg"
+ },
+ {
+   "id": 55,
+   "name": "White"
+ },
+ {
+   "id": 56,
+   "name": "Wide Leg and Flare"
+ },
+ {
+   "id": 57,
+   "name": "Jumpsuits and Rompers"
+ },
+ {
+   "id": 58,
+   "name": "Leggings"
+ },
+ {
+   "id": 59,
+   "name": "Soft Pants"
+ },
+ {
+   "id": 60,
+   "name": "Joggers"
+ },
+ {
+   "id": 61,
+   "name": "Utility"
+ },
+ {
+   "id": 62,
+   "name": "Tops"
+ },
+ {
+   "id": 63,
+   "name": "Blazers and Jackets"
+ },
+ {
+   "id": 64,
+   "name": "Denim Jackets"
+ },
+ {
+   "id": 65,
+   "name": "Vegan Leather Jackets"
+ },
+ {
+   "id": 66,
+   "name": "Vests"
+ },
+ {
+   "id": 67,
+   "name": "Army Jackets"
+ },
+ {
+   "id": 68,
+   "name": "Moto Jackets"
+ },
+ {
+   "id": 69,
+   "name": "Blouses and Shirting"
+ },
+ {
+   "id": 70,
+   "name": "Long Sleeve Shirts"
+ },
+ {
+   "id": 71,
+   "name": "3/4 Length Shirts"
+ },
+ {
+   "id": 72,
+   "name": "Button Down Shirts"
+ },
+ {
+   "id": 73,
+   "name": "Sleeveless Blouses"
+ },
+ {
+   "id": 74,
+   "name": "Plaid Shirts"
+ },
+ {
+   "id": 75,
+   "name": "Bralette"
+ },
+ {
+   "id": 76,
+   "name": "Graphic Tees"
+ },
+ {
+   "id": 77,
+   "name": "Outerwear"
+ },
+ {
+   "id": 78,
+   "name": "Ponchos and Kimonos"
+ },
+ {
+   "id": 79,
+   "name": "Pullovers"
+ },
+ {
+   "id": 80,
+   "name": "Sweater Coats"
+ },
+ {
+   "id": 81,
+   "name": "Sweater"
+ },
+ {
+   "id": 82,
+   "name": "T Shirts"
+ },
+ {
+   "id": 83,
+   "name": "Tanks And Camis"
+ },
+ {
+   "id": 84,
+   "name": "Tunics"
+ },
+ {
+   "id": 85,
+   "name": "Vests"
+ },
+ {
+   "id": 86,
+   "name": "AG"
+ },
+ {
+   "id": 87,
+   "name": "Allison Joy"
+ },
+ {
+   "id": 88,
+   "name": "Alternative"
+ },
+ {
+   "id": 89,
+   "name": "Amuse Society"
+ },
+ {
+   "id": 90,
+   "name": "BeachLunchLounge"
+ },
+ {
+   "id": 91,
+   "name": "Bench"
+ },
+ {
+   "id": 92,
+   "name": "Billabong"
+ },
+ {
+   "id": 93,
+   "name": "Blank"
+ },
+ {
+   "id": 94,
+   "name": "Bobi"
+ },
+ {
+   "id": 95,
+   "name": "Braeve"
+ },
+ {
+   "id": 96,
+   "name": "Central Park West"
+ },
+ {
+   "id": 97,
+   "name": "Chaser"
+ },
+ {
+   "id": 98,
+   "name": "Cloth and Stone"
+ },
+ {
+   "id": 99,
+   "name": "Daniel Rainn"
+ },
+ {
+   "id": 100,
+   "name": "Dylan"
+ },
+ {
+   "id": 101,
+   "name": "Eight Sixty"
+ },
+ {
+   "id": 102,
+   "name": "Fate"
+ },
+ {
+   "id": 103,
+   "name": "Free People"
+ },
+ {
+   "id": 104,
+   "name": "Garnet Field"
+ },
+ {
+   "id": 105,
+   "name": "Gentle Fawn"
+ },
+ {
+   "id": 106,
+   "name": "Jamison"
+ },
+ {
+   "id": 107,
+   "name": "John And Jenn"
+ },
+ {
+   "id": 108,
+   "name": "Junk Food"
+ },
+ {
+   "id": 109,
+   "name": "Kersh"
+ },
+ {
+   "id": 110,
+   "name": "Kut From The Kloth"
+ },
+ {
+   "id": 111,
+   "name": "LA Made"
+ },
+ {
+   "id": 112,
+   "name": "Level 99"
+ },
+ {
+   "id": 113,
+   "name": "Levis"
+ },
+ {
+   "id": 114,
+   "name": "LNA"
+ },
+ {
+   "id": 115,
+   "name": "Lovestitch"
+ },
+ {
+   "id": 116,
+   "name": "Lush"
+ },
+ {
+   "id": 117,
+   "name": "Marrakesh"
+ },
+ {
+   "id": 118,
+   "name": "Matty M"
+ },
+ {
+   "id": 119,
+   "name": "Michael Stars"
+ },
+ {
+   "id": 120,
+   "name": "Moon River"
+ },
+ {
+   "id": 121,
+   "name": "Mystree"
+ },
+ {
+   "id": 122,
+   "name": "Peace Love World"
+ },
+ {
+   "id": 123,
+   "name": "Peyton Jensen"
+ },
+ {
+   "id": 124,
+   "name": "Philanthropy"
+ },
+ {
+   "id": 125,
+   "name": "Rails"
+ },
+ {
+   "id": 126,
+   "name": "Sanctuary"
+ },
+ {
+   "id": 127,
+   "name": "Scrapbook"
+ },
+ {
+   "id": 128,
+   "name": "Skies Are Blue"
+ },
+ {
+   "id": 129,
+   "name": "Sundry"
+ },
+ {
+   "id": 130,
+   "name": "Sunnyside"
+ },
+ {
+   "id": 131,
+   "name": "Three Dots"
+ },
+ {
+   "id": 132,
+   "name": "Tolani"
+ },
+ {
+   "id": 133,
+   "name": "Trunk"
+ },
+ {
+   "id": 134,
+   "name": "Vintage Havana"
+ },
+ {
+   "id": 135,
+   "name": "Willow And Clay"
+ },
+ {
+   "id": 139,
+   "name": "Collections"
+ },
+ {
+   "id": 140,
+   "name": "Megans Picks"
+ },
+ {
+   "id": 141,
+   "name": "Fall Trends"
+ },
+ {
+   "id": 142,
+   "name": "Just In"
+ }
+]

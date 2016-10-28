@@ -29,3 +29,19 @@
 // });
 //
 // module.exports = router;
+
+
+
+//~~~~~~~~~~ notes to join path 
+//
+// var path = require('path');
+// var mydata = {'thing': 'thing', 'derp': 'doo'};
+// this.write = function(data,filename){
+//   if(typeof data !== "string") data = JSON.stringify(data);
+//   var file = path.join(__dirname, '/newfile.json', filename);
+//   fs.writeFileSync(file, data);
+//   console.log('derp file', file);
+//   return file;
+// };
+//
+// this.write(mydata);
