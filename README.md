@@ -11,3 +11,8 @@ mongoimport -h localhost:3001 --db meteor --collection Prod
 ucts --file /Users/katherinevogel/Codespace/reaction/custom/fileProducts.json
 
 ^^run from terminal in reaction directory to bypass meteorImport process.
+
+
+
+
+10/29/16 -- Working on reading, parsing files synchronously.  fs-sync or fs-wait?  (look in template2.js, Katie)
