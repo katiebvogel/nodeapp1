@@ -15,4 +15,4 @@ ucts --file /Users/katherinevogel/Codespace/reaction/custom/fileProducts.json
 
 
 
-10/29/16 -- Working on reading, parsing files synchronously.  fs-sync or fs-wait?  (look in template2.js, Katie)
+10/29/16 -- Working on reading, parsing files synchronously.  fs-sync or fs-wait?  (look in template2.js, Katie) fs-then. 

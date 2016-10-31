@@ -16,39 +16,56 @@ var Converter = require('csvtojson').Converter;
 var converter = new Converter({});
 
 
-
-
 /////////////////////////////////
 //~~~~~~~~~~~~~~~~~~~~~~~BEGIN Block of code for importing Tags and transforming to Reaction Schema    BEGIN   ~~~~~~~~~~~~~~~~~~~~~
 // var tags;
 var tagArray = [];
-var transformedTags;
+var transformedTag;
 var tags;
+var stringTag;
+
+var saveTagData = function(data) {
+    fs.writeFile('/Users/katherinevogel/Codespace/reaction/private/data/Tags.json', data, function(err, data) {
+        if (err) {
+            console.log('error with your data file export', err);
+        }
+        console.log('It has been saved as a file, yo!', data);
+    });
+}
+
+var changeTag = function() {
+    console.log('tags?', tags[7]);
+    for (var i = 0; i < tags.length; i++) {
+        var tempTag = tags[i];
+        tempTag.slug = "tempTag.name";
+        tempTag.isTopLevel = true;
+        tempTag.isDeleted = false;
+        tempTag.shopId = 'J8Bhq3uTtdgwZx3rz';
+    }
+}
+
+var makeTagArray = function(tags) {
+    for (var i = 0; i < tags.length; i++) {
+        var tagData = tags[i]
+        transformedTag = transform(tagData, tagTemplate);
+        console.log('transformed tag in line 51:', transformedTag);
+        tagArray.push(transformedTag);
+        var stringTag = JSON.stringify(tagArray);
+    }
+    console.log('transformed:', stringTag);
+    saveTagData(stringTag);
+    return stringTag;
+}
 
 
-fst.readFile('tags.json', 'utf8', function (err, data){
-   tags = JSON.parse(data);
-   console.log('here is a tag', tags[5]);
-   return tags;
- }).then(function convert(){
-  console.log('tags?', tag[7]);
+//fs.readFile or fst.readFile? see below...
 
-  for (var i = 0; i < tags.length; i++) {
-      var tempTag = tags[i];
-      tempTag.slug = "tempTag.name";
-      tempTag.isTopLevel = true;
-      tempTag.isDeleted = false;
-      tempTag.shopId = 'J8Bhq3uTtdgwZx3rz';
-    tranformedTags = transform(tempTag, tagTemplate);
-    tagArray.push(transformedTags);
-    var stringTag = JSON.stringify(tagArray);
-    console.log('transformed:', transformedTags);
-  };
-  saveTagData(stringTag);
-  return tagArray;
+fs.readFile('tags.json', 'utf8', function(err, data) {
+    tags = JSON.parse(data);
+    console.log('here is a 2nd tag', tags[5]);
+    changeTag(tags);
+    makeTagArray(tags);
 });
-
-
 
 var tagTemplate = {
     _id: '$..id', //string
@@ -63,14 +80,6 @@ var tagTemplate = {
         // updatedAt: , //date
 };
 
-saveTagData = function(data) {
-    fs.appendFile('/Users/katherinevogel/Codespace/reaction/private/data/Tags.json', data, function(err, data) {
-        if (err) {
-            console.log('error with your data file export', err);
-        }
-        console.log('It has been saved as a file, yo!', data);
-    });
-};
 
 //~~~~~~~~~~~~~~~~~~~~~~~END Block of code for importing Tags and transforming to Reaction Schema       END    ~~~~~~~~~~~~~~~~~~~~~
 /////////////////////
@@ -210,7 +219,7 @@ var template = {
 
 
 var saveData = function(data) {
-    fs.appendFile('/Users/katherinevogel/Codespace/reaction/private/data/Products.json', data, function(err, data) {
+    fs.writeFile('/Users/katherinevogel/Codespace/reaction/private/data/Products.json', data, function(err, data) {
         if (err) {
             console.log('error with your data file export', err);
         }
