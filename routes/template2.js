@@ -25,7 +25,7 @@ var tags;
 var stringTag;
 
 var saveTagData = function(data) {
-    fs.writeFile('/Users/katherinevogel/Codespace/reaction/private/data/Tags.json', data, function(err, data) {
+    fs.writeFile('Tags.json', data, function(err, data) {
         if (err) {
             console.log('error with your data file export', err);
         }
@@ -60,7 +60,7 @@ var makeTagArray = function(tags) {
 
 //fs.readFile or fst.readFile? see below...
 
-fs.readFile('tags.json', 'utf8', function(err, data) {
+fs.readFile('toImportTags.json', 'utf8', function(err, data) {
     tags = JSON.parse(data);
     console.log('here is a 2nd tag', tags[5]);
     changeTag(tags);
@@ -172,7 +172,6 @@ converter.on("end_parsed", function(tops) {
     for (var i = 0; i < tops.length; i++) {
         var data = tops[i];
         var result = transform(data, template);
-        // console.log("mapping data from example to template:", result);
         arrayResult.push(result);
         var stringData = JSON.stringify(arrayResult);
     }
@@ -190,7 +189,6 @@ var template = {
     description: "",
     type: "",
     vendor: '$..brand',
-    // metafields: ['$..metafields'],
     metafields: ['$..newMetafield'],
     // metafields: '$...item',
     positions: "",
@@ -200,7 +198,7 @@ var template = {
     isBackorder: true,
     requiresShipping: true,
     parcel: '$..shippingsurcharge',
-    hashtags: [],
+    hashtags: ['$..hashtags'],
     twitterMsg: "",
     facebookMsg: "",
     googleplusMsg: "",
@@ -219,7 +217,7 @@ var template = {
 
 
 var saveData = function(data) {
-    fs.writeFile('/Users/katherinevogel/Codespace/reaction/private/data/Products.json', data, function(err, data) {
+    fs.writeFile('Products.json', data, function(err, data) {
         if (err) {
             console.log('error with your data file export', err);
         }
