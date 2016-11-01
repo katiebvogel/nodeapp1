@@ -11,16 +11,14 @@
     "price": 20,
     "isSoldOut": false,
     "parcel": 0,
-    "hashtags": [
-        ["FREE PEOPLE", "TOPS", "BOHO CHIC", null, "topseller", "justin", null, null, "finds"]
-    ],
+    "hashtags": ["FREE PEOPLE", "TOPS", "BOHO CHIC", null, "topseller", "justin", null, null, "finds"],
     "isDeleted": false,
     "isVisible": true
 }, {
     "_id": "1000J",
     "ancestors": [],
     "shopId": "J8Bhq3uTtdgwZx3rz",
-    "title": "Long Beach Tank",
+    "title": "Long Beach Pant",
     "vendor": "FREE PEOPLE",
     "metafields": [{
         "0": "32249|Purple|663e6d,32250|Black|000000,32251|White|FFFFFF,32252|Green|62806d,32253|GREY|,32254|PETALPINK|",
@@ -29,16 +27,14 @@
     "price": 20,
     "isSoldOut": false,
     "parcel": 0,
-    "hashtags": [
-        ["FREE PEOPLE", "TOPS", "BOHO CHIC", null, "topseller", "justin", null, null, "finds"]
-    ],
+    "hashtags": ["FREE PEOPLE", "TOPS", "BOHO CHIC", null, "topseller", "justin", null, null, "finds"],
     "isDeleted": false,
     "isVisible": true
 }, {
     "_id": "1000I",
     "ancestors": [],
     "shopId": "J8Bhq3uTtdgwZx3rz",
-    "title": "Long Beach Tank",
+    "title": "Long Beach Shirt",
     "vendor": "FREE PEOPLE",
     "metafields": [{
         "0": "32249|Purple|663e6d,32250|Black|000000,32251|White|FFFFFF,32252|Green|62806d,32253|GREY|,32254|PETALPINK|",
@@ -47,9 +43,7 @@
     "price": 20,
     "isSoldOut": false,
     "parcel": 0,
-    "hashtags": [
-        ["FREE PEOPLE", "TOPS", "BOHO CHIC", null, "topseller", "justin", null, null, "finds"]
-    ],
+    "hashtags": ["FREE PEOPLE", "TOPS", "URBAN SOPHISTICATE", null, "topseller", "justin", null, null, "finds"],
     "isDeleted": false,
     "isVisible": true
 }]

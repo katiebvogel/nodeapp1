@@ -198,7 +198,7 @@ var template = {
     isBackorder: true,
     requiresShipping: true,
     parcel: '$..shippingsurcharge',
-    hashtags: ['$..hashtags'],
+    hashtags: '$...hashtags',
     twitterMsg: "",
     facebookMsg: "",
     googleplusMsg: "",
