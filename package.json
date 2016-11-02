@@ -18,11 +18,13 @@
     "express": "^4.14.0",
     "file-system": "^2.2.1",
     "fs-then": "^0.2.0",
+    "jpeg-js": "^0.2.0",
     "jsonpath-object-transform": "^1.0.4",
     "lodash": "^4.16.4",
     "mongodb": "^2.2.10",
     "mongoose": "^4.6.4",
     "node-csv": "^0.1.2",
-    "pg": "^6.1.0"
+    "pg": "^6.1.0",
+    "request": "^2.76.0"
   }
 }

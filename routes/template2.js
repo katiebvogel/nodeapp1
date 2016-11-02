@@ -16,6 +16,44 @@ var Converter = require('csvtojson').Converter;
 var converter = new Converter({});
 
 
+
+
+function every8am (runTime) {
+    var now = new Date(),
+        start,
+        wait;
+        console.log('this is now', now);
+    if (now.getHours() < 7) {
+        start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 22, 45, 0, 0);
+    } else {
+        start = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 22, 45, 0, 0);
+    }
+
+    wait = start.getTime() - now.getTime();
+
+    if(wait <= 0) { //If missed 8am before going into the setTimeout
+        console.log('Oops, missed the hour');
+        every8am(runTime); //Retry
+    } else {
+        setTimeout(function () { //Wait 8am
+            setInterval(function () {
+                runTime();
+            }, 86400000); //Every day
+        },wait);
+    }
+};
+
+every8am();
+
+/////////////////////////////////
+//~~~~~~~~~~~~~~~~~~~~~~~BEGIN Block of code for importing IMAGES and transforming to Reaction Schema    BEGIN   ~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+function runTime() {
+
+
 /////////////////////////////////
 //~~~~~~~~~~~~~~~~~~~~~~~BEGIN Block of code for importing Tags and transforming to Reaction Schema    BEGIN   ~~~~~~~~~~~~~~~~~~~~~
 // var tags;
@@ -29,7 +67,7 @@ var saveTagData = function(data) {
         if (err) {
             console.log('error with your data file export', err);
         }
-        console.log('It has been saved as a file, yo!', data);
+        // console.log('It has been saved as a file, yo!', data);
     });
 }
 
@@ -48,11 +86,11 @@ var makeTagArray = function(tags) {
     for (var i = 0; i < tags.length; i++) {
         var tagData = tags[i]
         transformedTag = transform(tagData, tagTemplate);
-        console.log('transformed tag in line 51:', transformedTag);
+        // console.log('transformed tag in line 51:', transformedTag);
         tagArray.push(transformedTag);
         var stringTag = JSON.stringify(tagArray);
     }
-    console.log('transformed:', stringTag);
+    // console.log('transformed:', stringTag);
     saveTagData(stringTag);
     return stringTag;
 }
@@ -62,7 +100,7 @@ var makeTagArray = function(tags) {
 
 fs.readFile('toImportTags.json', 'utf8', function(err, data) {
     tags = JSON.parse(data);
-    console.log('here is a 2nd tag', tags[5]);
+    // console.log('here is a 2nd tag', tags[5]);
     changeTag(tags);
     makeTagArray(tags);
 });
@@ -224,6 +262,11 @@ var saveData = function(data) {
         // console.log('It has been saved as a file, yo!', data);
     });
 };
+
+
+}; //run the whole thing every 5 seconds
+
+
 
 /////////////////
 //~~~~~~~~~~~~~~~~~~~~~~~END   block of code for transforming PRODUCTS for Reaction    END PRODUCT TRANSFORM ~~~~~~~~~~~~~~~~~~

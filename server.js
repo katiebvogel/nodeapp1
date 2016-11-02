@@ -5,9 +5,9 @@ var MongoClient = require('mongodb').MongoClient;
 var bodyParser= require('body-parser');
 var index = require('./routes/index');
 var lodash = require('./routes/lodash');
-var jsonConvert = require('./routes/jsonConvert');
+// var jsonConvert = require('./routes/jsonConvert');
 var template = require('./routes/template2');
-
+var imageImport = require('./routes/imageImport');
 
 //below code for connecting to postgresql DB
 // const csv = require ('csv');
