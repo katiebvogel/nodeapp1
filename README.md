@@ -40,3 +40,5 @@ Also -- image schema is located:  lib/collections/schemas/collectionFS.js
 They are associated with the products within the 'cfs_gridfs.image.files'  collection
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+11/3/16   -- leaving off at nested for-looping in evereve reaction project.  running into "cannot wait without a fiber"
