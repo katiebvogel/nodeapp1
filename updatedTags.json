@@ -1,0 +1,887 @@
+[
+ {
+   "id": 1,
+   "parent_id": null,
+   "name": "Categories",
+   "isTopLevel": false
+ },
+ {
+   "id": 2,
+   "parent_id": null,
+   "name": "Brand",
+   "isTopLevel": true,
+   "relatedTagIds": ["AG", "Allison Joy", "Alternative", "Amuse Society", "BeachLunchLounge", "Bench", "Billabong", "Blank", "Bobi", "Braeve", "Central Park West", "Chaser", "Cloth and Stone", "Daniel Rainn", "Dylan", "Eight Sixty", "Fate", "Free People", "Garnet Field", "Gentle Fawn", "Jamison", "John And Jenn", "Junk Food", "Kersh", "Kut From The Cloth", "LA Made", "Level 99", "Levi's", "LNA", "Lovestitch", "Lush", "Marrakesh", "Matty M", "Michael Stars", "Moon River", "Mystree", "Peace Love World", "Peyton Jensen", "Philanthropy", "Rails", "Sanctuary", "Scrapbook", "Skies Are Blue", "Sundry", "Sunnyside", "Three Dots", "Tolani", "Trunk", "Vintage Havana", "Willow And Clay"]
+ },
+ {
+   "id": 13,
+   "parent_id": 1,
+   "name": "Accessories",
+   "isTopLevel": true,
+   "relatedTagIds": ["Jewelry", "Scarves", "Belts", "Socks", "Intimates", "Shoes", "Beauty", "Sunglasses", "Hats", "Tights", "Key Chains", "Swell Water Bottles", "9wWZQ4aZ2Lx532MQj", "9o99yNzgXL4JBnNEQ"]
+ },
+ {
+   "id": 14,
+   "parent_id": 13,
+   "name": "Belts",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 15,
+   "parent_id": 13,
+   "name": "Jewelry",
+   "isTopLevel": false,
+   "relatedTagIds": ["Necklaces", "Bracelets", "Earrings", "Rings", "ASDPfQwqWFtFF9zqg"]
+ },
+ {
+   "id": 16,
+   "parent_id": 15,
+   "name": "Necklaces",
+   "isTopLevel": false
+ },
+ {
+   "id": 17,
+   "parent_id": 15,
+   "name": "Bracelets",
+   "isTopLevel": false
+ },
+ {
+   "id": 18,
+   "parent_id": 15,
+   "name": "Rings",
+   "isTopLevel": false
+ },
+ {
+   "id": 19,
+   "parent_id": 15,
+   "name": "Earrings",
+   "isTopLevel": false
+ },
+ {
+   "id": 20,
+   "parent_id": 15,
+   "name": "Headbands",
+   "isTopLevel": false
+ },
+ {
+   "id": 21,
+   "parent_id": 15,
+   "name": "Anklets",
+   "isTopLevel": false
+ },
+ {
+   "id": 22,
+   "parent_id": 13,
+   "name": "Beauty",
+   "isTopLevel": false
+ },
+ {
+   "id": 23,
+   "parent_id": 13,
+   "name": "Gift Cards",
+   "isTopLevel": false
+ },
+ {
+   "id": 24,
+   "parent_id": 13,
+   "name": "Gifts",
+   "isTopLevel": false
+ },
+ {
+   "id": 25,
+   "parent_id": 13,
+   "name": "Hats",
+   "isTopLevel": false
+ },
+ {
+   "id": 26,
+   "parent_id": 13,
+   "name": "Intimates",
+   "isTopLevel": false,
+   "relatedTagIds": ["Bralettes", "Tanks And Camis", "Slips", "nxBFf4nZTrL7GaB66"]
+ },
+ {
+   "id": 27,
+   "parent_id": 26,
+   "name": "Slips",
+   "isTopLevel": false
+ },
+ {
+   "id": 28,
+   "parent_id": 26,
+   "name": "Tanks And Camis",
+   "isTopLevel": false
+ },
+ {
+   "id": 29,
+   "parent_id": 26,
+   "name": "Bralettes",
+   "isTopLevel": false
+ },
+ {
+   "id": 30,
+   "parent_id": 13,
+   "name": "Scarves",
+   "isTopLevel": false
+ },
+ {
+   "id": 31,
+   "parent_id": 13,
+   "name": "Sleepwear",
+   "isTopLevel": false
+ },
+ {
+   "id": 32,
+   "parent_id": 30,
+   "name": "Infinity Scarves",
+   "isTopLevel": false
+ },
+ {
+   "id": 33,
+   "parent_id": 30,
+   "name": "Square Scarves",
+   "isTopLevel": false
+ },
+ {
+   "id": 34,
+   "parent_id": 30,
+   "name": "Knit Scarves",
+   "isTopLevel": false
+ },
+ {
+   "id": 35,
+   "parent_id": 13,
+   "name": "Socks",
+   "isTopLevel": false
+ },
+ {
+   "id": 36,
+   "parent_id": 13,
+   "name": "Sunglasses",
+   "isTopLevel": false
+ },
+ {
+   "id": 37,
+   "parent_id": 13,
+   "name": "Tights",
+   "isTopLevel": false
+ },
+ {
+   "id": 38,
+   "parent_id": 1,
+   "name": "Dresses & Skirts",
+   "isTopLevel": true,
+   "relatedTagIds": ["Dresses", "Skirts"]
+ },
+ {
+   "id": 39,
+   "parent_id": 38,
+   "name": "Dresses",
+   "isTopLevel": false
+ },
+ {
+   "id": 40,
+   "parent_id": 38,
+   "name": "Jumpsuits & Rompers",
+   "isTopLevel": false
+ },
+ {
+   "id": 41,
+   "parent_id": 38,
+   "name": "Skirts",
+   "isTopLevel": false
+ },
+ {
+   "id": 42,
+   "parent_id": 1,
+   "name": "Jeans",
+   "isTopLevel": true,
+   "relatedTagIds": ["Skinny", "Boyfriend", "Crops & Ankle", "Wide Leg & Flare", "Shorts", "Straight Leg", "White", "Grey To Black", "Distressed", "Raw Hem", "Petite", "Dark Denim"]
+ },
+ {
+   "id": 43,
+   "parent_id": 42,
+   "name": "Boyfriend",
+   "isTopLevel": false
+ },
+ {
+   "id": 44,
+   "parent_id": 42,
+   "name": "Crops & Ankle",
+   "isTopLevel": false
+ },
+ {
+   "id": 45,
+   "parent_id": 42,
+   "name": "Dark Denim",
+   "isTopLevel": false
+ },
+ {
+   "id": 46,
+   "parent_id": 42,
+   "name": "Distressed",
+   "isTopLevel": false
+ },
+ {
+   "id": 47,
+   "parent_id": 42,
+   "name": "Flare",
+   "isTopLevel": false
+ },
+ {
+   "id": 48,
+   "parent_id": 1,
+   "name": "Pants",
+   "isTopLevel": true,
+   "relatedTagIds": ["Soft Pants", "Joggers", "Leggings", "Utility"]
+ },
+ {
+   "id": 49,
+   "parent_id": 42,
+   "name": "Grey to Black",
+   "isTopLevel": false
+ },
+ {
+   "id": 50,
+   "parent_id": 42,
+   "name": "Petite",
+   "isTopLevel": false
+ },
+ {
+   "id": 51,
+   "parent_id": 42,
+   "name": "Raw Hem",
+   "isTopLevel": false
+ },
+ {
+   "id": 52,
+   "parent_id": 42,
+   "name": "Shorts",
+   "isTopLevel": false
+ },
+ {
+   "id": 53,
+   "parent_id": 42,
+   "name": "Skinny",
+   "isTopLevel": false
+ },
+ {
+   "id": 54,
+   "parent_id": 42,
+   "name": "Straight Leg",
+   "isTopLevel": false
+ },
+ {
+   "id": 55,
+   "parent_id": 42,
+   "name": "White",
+   "isTopLevel": false
+ },
+ {
+   "id": 56,
+   "parent_id": 42,
+   "name": "Wide Leg & Flare",
+   "isTopLevel": false
+ },
+ {
+   "id": 57,
+   "parent_id": 48,
+   "name": "Jumpsuits & Rompers",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 58,
+   "parent_id": 48,
+   "name": "Leggings",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 59,
+   "parent_id": 48,
+   "name": "Soft Pants",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 60,
+   "parent_id": 48,
+   "name": "Joggers",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 61,
+   "parent_id": 48,
+   "name": "Utility",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 62,
+   "parent_id": 1,
+   "name": "Tops",
+   "isTopLevel": true,
+   "relatedTagIds": ["Blouses & Shirting", "Sweaters", "Tunics", "Sweatshirts", "Graphic Tees", "Tanks And Camis", "T-Shirts", "Ponchos & Kimonos", "Blazers & Jackets", "Vests", "Bralettes"]
+ },
+ {
+   "id": 63,
+   "parent_id": 62,
+   "name": "Blazers & Jackets",
+   "isTopLevel": false,
+   "relatedTagIds": ["Denim Jackets", "Vegan Leather Jackets", "Army Jackets", "Moto Jackets"]
+ },
+ {
+   "id": 64,
+   "parent_id": 63,
+   "name": "Denim Jackets",
+   "isTopLevel": false
+ },
+ {
+   "id": 65,
+   "parent_id": 63,
+   "name": "Vegan Leather Jackets",
+   "isTopLevel": false
+ },
+ {
+   "id": 66,
+   "parent_id": 63,
+   "name": "Vests",
+   "isTopLevel": false
+ },
+ {
+   "id": 67,
+   "parent_id": 63,
+   "name": "Army Jackets",
+   "isTopLevel": false
+ },
+ {
+   "id": 68,
+   "parent_id": 63,
+   "name": "Moto Jackets",
+   "isTopLevel": false
+ },
+ {
+   "id": 69,
+   "parent_id": 62,
+   "name": "Blouses & Shirting",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 70,
+   "parent_id": 69,
+   "name": "Long Sleeve Shirts",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 71,
+   "parent_id": 69,
+   "name": "3/4 Length Shirts",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 72,
+   "parent_id": 69,
+   "name": "Button Down Shirts",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 73,
+   "parent_id": 69,
+   "name": "Sleeveless Blouses",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 74,
+   "parent_id": 69,
+   "name": "Plaid Shirts",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 75,
+   "parent_id": 62,
+   "name": "Bralette",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 76,
+   "parent_id": 62,
+   "name": "Graphic Tees",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 77,
+   "parent_id": 62,
+   "name": "Outerwear",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 78,
+   "parent_id": 62,
+   "name": "Ponchos & Kimonos",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 79,
+   "parent_id": 62,
+   "name": "Pullovers",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 80,
+   "parent_id": 62,
+   "name": "Sweater Coats",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 81,
+   "parent_id": 62,
+   "name": "Sweaters",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 82,
+   "parent_id": 62,
+   "name": "T-Shirts",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 83,
+   "parent_id": 62,
+   "name": "Tanks And Camis",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 84,
+   "parent_id": 62,
+   "name": "Tunics",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 85,
+   "parent_id": 62,
+   "name": "Vests",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 86,
+   "parent_id": 2,
+   "name": "AG",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 87,
+   "parent_id": 2,
+   "name": "Allison Joy",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 88,
+   "parent_id": 2,
+   "name": "Alternative",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 89,
+   "parent_id": 2,
+   "name": "Amuse Society",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 90,
+   "parent_id": 2,
+   "name": "BeachLunchLounge",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 91,
+   "parent_id": 2,
+   "name": "Bench",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 92,
+   "parent_id": 2,
+   "name": "Billabong",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 93,
+   "parent_id": 2,
+   "name": "Blank",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 94,
+   "parent_id": 2,
+   "name": "Bobi",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 95,
+   "parent_id": 2,
+   "name": "Braeve",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 96,
+   "parent_id": 2,
+   "name": "Central Park West",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 97,
+   "parent_id": 2,
+   "name": "Chaser",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 98,
+   "parent_id": 2,
+   "name": "Cloth and Stone",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 99,
+   "parent_id": 2,
+   "name": "Daniel Rainn",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 100,
+   "parent_id": 2,
+   "name": "Dylan",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 101,
+   "parent_id": 2,
+   "name": "Eight Sixty",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 102,
+   "parent_id": 2,
+   "name": "Fate",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 103,
+   "parent_id": 2,
+   "name": "Free People",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 104,
+   "parent_id": 2,
+   "name": "Garnet Field",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 105,
+   "parent_id": 2,
+   "name": "Gentle Fawn",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 106,
+   "parent_id": 2,
+   "name": "Jamison",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 107,
+   "parent_id": 2,
+   "name": "John And Jenn",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 108,
+   "parent_id": 2,
+   "name": "Junk Food",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 109,
+   "parent_id": 2,
+   "name": "Kersh",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 110,
+   "parent_id": 2,
+   "name": "Kut From The Kloth",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 111,
+   "parent_id": 2,
+   "name": "LA Made",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 112,
+   "parent_id": 2,
+   "name": "Level 99",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 113,
+   "parent_id": 2,
+   "name": "Levi's",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 114,
+   "parent_id": 2,
+   "name": "LNA",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 115,
+   "parent_id": 2,
+   "name": "Lovestitch",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 116,
+   "parent_id": 2,
+   "name": "Lush",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 117,
+   "parent_id": 2,
+   "name": "Marrakesh",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 118,
+   "parent_id": 2,
+   "name": "Matty M",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 119,
+   "parent_id": 2,
+   "name": "Michael Stars",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 120,
+   "parent_id": 2,
+   "name": "Moon River",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 121,
+   "parent_id": 2,
+   "name": "Mystree",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 122,
+   "parent_id": 2,
+   "name": "Peace Love World",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 123,
+   "parent_id": 2,
+   "name": "Peyton Jensen",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 124,
+   "parent_id": 2,
+   "name": "Philanthropy",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 125,
+   "parent_id": 2,
+   "name": "Rails",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 126,
+   "parent_id": 2,
+   "name": "Sanctuary",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 127,
+   "parent_id": 2,
+   "name": "Scrapbook",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 128,
+   "parent_id": 2,
+   "name": "Skies Are Blue",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 129,
+   "parent_id": 2,
+   "name": "Sundry",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 130,
+   "parent_id": 2,
+   "name": "Sunnyside",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 131,
+   "parent_id": 2,
+   "name": "Three Dots",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 132,
+   "parent_id": 2,
+   "name": "Tolani",
+   "isTopLevel": false
+
+ },
+ {
+   "id": 133,
+   "parent_id": 2,
+   "name": "Trunk",
+   "isTopLevel": false
+ },
+ {
+   "id": 134,
+   "parent_id": 2,
+   "name": "Vintage Havana",
+   "isTopLevel": false
+ },
+ {
+   "id": 135,
+   "parent_id": 2,
+   "name": "Willow And Clay",
+   "isTopLevel": false
+ },
+ {
+   "id": 139,
+   "parent_id": null,
+   "name": "Collections",
+   "isTopLevel": false
+ },
+ {
+   "id": 140,
+   "parent_id": 139,
+   "name": "Megan's Picks",
+   "isTopLevel": true
+ },
+ {
+   "id": 141,
+   "parent_id": 139,
+   "name": "Fall Trends",
+   "isTopLevel": true,
+   "relatedTagIds": []
+ },
+ {
+   "id": 142,
+   "parent_id": 139,
+   "name": "Just In",
+   "isTopLevel": true
+
+ },
+ {
+   "id": 143,
+   "parent_id": null,
+   "name": "Sale",
+   "isTopLevel": true,
+   "relatedTagIds": []
+
+ },
+ {
+   "id": 144,
+   "parent_id": null,
+   "name": "Exclusive",
+   "isTopLevel": false
+ },
+ {
+   "id": 145,
+   "parent_id": null,
+   "name": "Outlet",
+   "isTopLevel": false,
+   "relatedTagIds": []
+
+ },
+ {
+   "id": 146,
+   "parent_id": null,
+   "name": "Gift Guide",
+   "isTopLevel": true,
+   "relatedTagIds": ["Gifts", "Gift Cards"]
+
+ }
+]
