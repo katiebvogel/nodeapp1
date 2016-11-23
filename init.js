@@ -1,53 +1,49 @@
-import {
-  Packages,
-  Shops
-} from "/lib/collections";
-import {
-  ReactionProduct
-} from "/lib/api";
-import {
-  Tags,
-  Products
-} from "/lib/collections";
-import {
-  check
-} from "meteor/check";
+// import {Packages, Shops} from "/lib/collections";
+// import {
+//   ReactionProduct
+// } from "/lib/api";
+// import {
+//   Tags,
+//   Products
+// } from "/lib/collections";
+// import {
+//   check
+// } from "meteor/check";
 import {
   Hooks,
-  Logger,
-  Reaction
+  Logger
 } from "/server/api";
 import {
   Fixture
 } from "/server/api/core/import";
-import {
-  MethodHooks
-} from "/server/api";
-import {
-  EJSON
-} from "meteor/ejson";
-import {
-  csvtojson
-} from "csvtojson";
-import {
-  jsonPathObjectTransform
-} from "jsonpath-object-transform";
-import {
-  jsonPath
-} from "JSONPath";
-import {
-  Meteor
-} from 'meteor/meteor';
-import makeProductTagArray from './tag_id';
-import makingTags from './tag_id';
-import makingTagArray from './tag_id';
-// import relatedBrandTags from './tag_id';
+// import {
+//   MethodHooks
+// } from "/server/api";
+// import {
+//   EJSON
+// } from "meteor/ejson";
+// import {
+//   csvtojson
+// } from "csvtojson";
+// import {
+//   jsonPathObjectTransform
+// } from "jsonpath-object-transform";
+// import {
+//   jsonPath
+// } from "JSONPath";
+// import {
+//   Meteor
+// } from 'meteor/meteor';
+// import makeProductTagArray from "./tag_id";
+import makingTags from "./tag_id";
+import makingTagArray from "./tag_id";
+// import relatedBrandTags from "./tag_id";
 
-const Future = require('fibers/future');
-const Fiber = require('fibers');
+// const Future = require('fibers/future');
+// const Fiber = require("fibers");
 
-const transform = require('jsonpath-object-transform');
-const fs = require('file-system');
+const transform = require("jsonpath-object-transform");
+const fs = require("file-system");
 
 Hooks.Events.add("afterCoreInit", () => {
   // Meteor.setInterval(runTime, 82400000); //this makes sure that the data will not reload again for another 24 hours
@@ -65,7 +61,7 @@ Hooks.Events.add("afterCoreInit", () => {
     const saveTagData = (data) => {
       fs.writeFile("../../../../../private/data/Tags.json", data, function (err) {
         if (err) {
-          console.log("error with your data file export", err);
+          // console.log("error with your data file export", err);
         }
       });
     };
@@ -76,31 +72,31 @@ Hooks.Events.add("afterCoreInit", () => {
         tempTag.isDeleted = false;
         tempTag.shopId = "J8Bhq3uTtdgwZx3rz";
         // tempTag.relatedTagIds = tempTag.relatedTagIds
-        if (tempTag.name == "Brand") {
+        if (tempTag.name === "Brand") {
           tempTag.relatedTagIds = brandArray;
         }
-        if (tempTag.name == "Jeans") {
+        if (tempTag.name === "Jeans") {
           tempTag.relatedTagIds = jeansArray;
         }
-        if (tempTag.name == "Accessories") {
+        if (tempTag.name === "Accessories") {
           tempTag.relatedTagIds = accessoriesArray;
         }
-        if (tempTag.name == "Tops") {
+        if (tempTag.name === "Tops") {
           tempTag.relatedTagIds = topsArray;
         }
-        if (tempTag.name == "Pants") {
+        if (tempTag.name === "Pants") {
           tempTag.relatedTagIds = pantsArray;
         }
-        if (tempTag.name == "Dresses & Skirts") {
+        if (tempTag.name === "Dresses & Skirts") {
           tempTag.relatedTagIds = dressArray;
         }
-        if (tempTag.name == "Jewelry") {
+        if (tempTag.name === "Jewelry") {
           tempTag.relatedTagIds = jewelryArray;
         }
-        if (tempTag.name == "Intimates") {
+        if (tempTag.name === "Intimates") {
           tempTag.relatedTagIds = intimatesArray;
         }
-        if (tempTag.name == "Gift Guide") {
+        if (tempTag.name === "Gift Guide") {
           tempTag.relatedTagIds = giftArray;
         }
       }
@@ -140,8 +136,10 @@ Hooks.Events.add("afterCoreInit", () => {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~
 
     // end_parsed will be emitted once parsing finished
+
+    // var testHash = [];
     converter.on("end_parsed", function (tops) {
-      const testHash = [];
+      testHash = [];
       const testGrab = () => {
         for (const top of tops) {
           const tempTop = top;
@@ -156,21 +154,20 @@ Hooks.Events.add("afterCoreInit", () => {
           tempTop.hashtags = [];
           tempTop.metafields = [];
           tempTop.newMetafield = [];
+          if (tempTop.vendor === "LEVI`S") {
+            tempTop.vendor = "Levi's";
+          }
           tempTop.brand = tempTop.vendor;
           if (typeof tempTop.vendor === "undefined") {
             tempTop.vendor = null;
           } else {
-            var i = -1;
-            for (var j = 0; j < brandTagArray.length - 1; j++) {
-              i++;
-              var brand = brandTagArray[j];
-              var lowerBrand = brand.toLowerCase();
-              var vendor = tempTop.vendor;
-              var lowerVendor = vendor.toLowerCase();
-              if (lowerVendor == lowerBrand) {
-                // console.log('match: ', lowerVendor, lowerBrand, brandArray[i]);
-                lowerVendor = brandArray[i];
-                tempTop.vendor = lowerVendor;
+            for (let j = 0; j < brandTagArray.length - 1; j++) {
+              const brand = brandTagArray[j];
+              const lowerBrand = brand.toLowerCase();
+              const vendor = tempTop.vendor;
+              const lowerVendor = vendor.toLowerCase();
+              if (lowerVendor === lowerBrand) {
+                tempTop.vendor = brandArray[j];
               }
             }
           }
@@ -215,12 +212,12 @@ Hooks.Events.add("afterCoreInit", () => {
           } else {
             tempTop.exclusive = exclusiveVar;
           }
-          const testHash = tempTop.hashtags;
+          testHash = tempTop.hashtags;
 
           testHash.push(tempTop.vendor, tempTop.dept, tempTop.inventorytype, tempTop.sale, tempTop.topseller,
             tempTop.justin, tempTop.meganpick, tempTop.exclusive, tempTop.finds);
 
-          const testMetafield = tempTop.metafields;
+          testMetafield = tempTop.metafields;
           testMetafield.push(tempTop.hexlist, tempTop.sizelist);
 
           tempTop.newMetafield = testMetafield.reduce(function (testMetafield, item, index) {
@@ -235,7 +232,7 @@ Hooks.Events.add("afterCoreInit", () => {
 
       // below we loop through each document/product and transform it individually.  result is just ONE product transformed.
       const arrayResult = [];
-      let stringData = undefined;
+      // let stringData = undefined;
 
       for (const top of tops) {
         const data = top;
@@ -271,16 +268,16 @@ Hooks.Events.add("afterCoreInit", () => {
         };
         const result = transform(data, template);
         result.handle = result._id;
-        result.type = "variant";
+        result.type = "simple";
         arrayResult.push(result);
         stringData = JSON.stringify(arrayResult);
       }
       const saveData = (stringData) => {
         fs.writeFile("../../../../../private/data/Products.json", stringData, function (err) {
           if (err) {
-            console.log("error with your data file export", err);
+            // console.log("error with your data file export", err);
           }
-          console.log("It has been saved as a file, yo!");
+          Logger.info("****It has been saved as a file, yo! **");
         });
       };
       saveData(stringData);

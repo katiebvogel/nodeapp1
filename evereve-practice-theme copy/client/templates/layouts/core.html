@@ -1,0 +1,42 @@
+<template name="coreLayoutEvereve">
+    {{> Template.dynamic template=template}}
+  </template>
+
+  <template name="coreLayout">
+    {{#if hasDashboardAccess}}
+      {{> coreAdminLayout}}
+    {{else}}
+    <div class="trendsend-throw">
+      <a class="topbar" href="http://www.evereve.com">Evereve</a>
+      <a class="topbar" href="http://www.trendsend.com">Trendsend <em>by Evereve</em></a>
+    </div>
+    <div class="logo">
+      <img src="/resources/images/evereve_logo.gif" alt="Ever Eve Logo" align="left" />
+      <!-- <div class="search" id="navbar-text-color" align="right">{{> React IconButtonComponent}}</div> -->
+      <!-- <br /> -->
+    </div>
+    <div>
+        <nav class="reaction-navigation-header">
+        <!-- begin layoutHeader -->
+        {{> Template.dynamic template=layoutHeader}}
+        <!-- end layoutHeader -->
+      </nav>
+
+      <nav class="reaction-cart-drawer">
+        {{>cartDrawer}}
+      </nav>
+    </div>
+
+      <main role="main" id="main">
+        <span id="layout-alerts">{{> inlineAlerts}}</span>
+        {{#if hasPermission 'guest'}}
+          <!-- begin template region -->
+          {{> Template.dynamic template=template}}
+          <!-- end template region -->
+        {{/if}}
+
+        <footer class="reaction-navigation-footer footer-default">{{> Template.dynamic template=layoutFooter}}</footer>
+      </main>
+
+    {{/if}}
+</template>

@@ -34,7 +34,7 @@ const file = fs.createWriteStream("file.docx");
 //
 // addimage();
 
-// 
+//
 // request.get("", function(response){
 //            console.log('reseponse data:', response);
 //           //  var str = _arrayBufferToBase64(response.data);
@@ -56,14 +56,28 @@ const file = fs.createWriteStream("file.docx");
 // request(imageUrl).pipe(fs.createWriteStream('image.jpg'));
 
 
-https.get("https://static.evereve.com/prodimages/23543-DEFAULT-l.jpg", function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      console.log('url is here:', imageUrl);
-        // var image = body;
-        var rawImageData = jpeg.decode(body);
-        console.log('jpegData: ', body.data);
-    }
+// https.get("https://static.evereve.com/prodimages/23543-DEFAULT-l.jpg", function (error, response, body) {
+//     if (!error && response.statusCode == 200) {
+//       console.log('url is here:', imageUrl);
+//         // var image = body;
+//         var rawImageData = jpeg.decode(body);
+//         console.log('jpegData: ', body.data);
+//     }
+// });
+
+var http = require('http');
+var fileObj = new FS.File(file);
+fileObj.metadata = {
+  ownerId: 'owner id',
+  productId: 1234,
+  variantId: 'variant',
+  shopId: 112512,
+  priority: 1
+};
+var request = http.get("http://i0.kym-cdn.com/entries/icons/original/000/004/815/lol-guy.jpg", function(response) {
+    response.pipe(fileObj);
 });
+Media.insert(fileObj);
 
 
 

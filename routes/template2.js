@@ -16,6 +16,14 @@ var Converter = require('csvtojson').Converter;
 var converter = new Converter({});
 
 
+var levi = "Levi's";
+var big = "LEVI'S";
+var lowerBig = big.toLowerCase();
+var lowerLevi = levi.toLowerCase();
+console.log(levi, lowerLevi, lowerBig, lowerLevi === lowerBig);
+
+
+
 
 
 function every8am (runTime) {

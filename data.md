@@ -1,23 +1,23 @@
 This is the default admin login for EVEREVE reaction repo project
 
-IMPORTANT! DEFAULT ADMIN INFO
-
-  EMAIL/LOGIN: ccnd7nwf@localhost
-
-  PASSWORD: Q4DXikz2
+Every time you run $ reaction reset the DB is cleared.  Next time you run $ reaction ,
+you will have a new admin username and email address created
 
 
-
-  *********************************
-
-     IMPORTANT! DEFAULT ADMIN INFO
+11/21/16
+*********************************
 
 
-     EMAIL/LOGIN: zouwlepr@localhost
+    IMPORTANT! DEFAULT ADMIN INFO
 
-     PASSWORD: MSv-nxqD
+    EMAIL/LOGIN: wieedxk7@localhost
 
-    *********************************
+    PASSWORD: TL4C_Exu
+
+
+   *********************************
+
+
 
 
 
