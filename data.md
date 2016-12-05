@@ -6,14 +6,11 @@ you will have a new admin username and email address created
 
 11/21/16
 *********************************
-
+Changed this in Dev settings. Duh.
 
     IMPORTANT! DEFAULT ADMIN INFO
-
-    EMAIL/LOGIN: wieedxk7@localhost
-
-    PASSWORD: TL4C_Exu
-
+email:  katiebvogel@gmail.com
+pword:  --you know it, Katie --
 
    *********************************
 

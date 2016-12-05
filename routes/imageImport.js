@@ -86,7 +86,34 @@ Media.insert(fileObj);
 //
 //
 
+import {Products} from "/lib/collections";
+// import {  Logger } from "/server/api";
 
+const http = require("http");
+const findProducts = Products.find({}, {type: "simple"});
+
+// export function makeImages() {
+//   findProducts.forEach(function (product) {
+//     const fileObj = new FS.File(file);
+//     fileObj.metadata = {
+//       ownerId: "",
+//       productId: product._id,
+//       variantId: "",
+//       shopId: "J8Bhq3uTtdgwZx3rz",
+//       priority: 1
+//     };
+//     request = http.get("https://static.evereve.com/prodimages/" + product._id + "DEFAULT-l.jpg", function (response) {
+//       response.pipe(fileObj);
+//     });
+//   });
+//   Media.insert(fileObj);
+// }
+//
+// makeImages(request);
+//
+// export default function () {
+//   makeImages();
+// }
 // request.get('/uploads/fullsize/:file', function (req, res){
 //   file = req.params.file;
 //   var img = fs.readFileSync(__dirname + "/uploads/fullsize/" + file);
